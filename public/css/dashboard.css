@@ -1,0 +1,7 @@
+.blog-Post {
+  display: flex;
+}
+
+.display-none {
+  display: hidden;
+}
