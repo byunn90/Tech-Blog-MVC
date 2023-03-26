@@ -1,132 +1,61 @@
-# 14 Model-View-Controller (MVC): Tech Blog
+# 😁 Tech-Blog-MVC
 
-## Your Task
+![alt text](<./images/Screenshot%20(49).png>)
 
-Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
+## Description
 
-Your task this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+The Model-View-Controller (MVC) Tech Blog is a CMS-style blog site for developers to publish their blog posts and comment on other developers' posts. The application follows the MVC paradigm and uses Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. The homepage displays existing blog posts, navigation links for the homepage and dashboard, and the option to log in. Users can sign up with a username and password to save their credentials and log in later. Once logged in, users can access the dashboard, where they can create new blog posts, edit existing posts, or delete posts. Users can also view existing blog posts on the homepage and leave comments on posts they choose. The application logs users out after a set idle time and prompts them to log in again to perform actions like adding, updating, or deleting comments. The application is deployed to Heroku.
 
-## User Story
+## Technologies Used:
 
-```md
-AS A developer who writes about tech
-I WANT a CMS-style blog site
-SO THAT I can publish articles, blog posts, and my thoughts and opinions
-```
+- HTML
+- CSS
+- javaScript
+- Node.js
+- Express.js
+- MySQL
+- Handlebars
+- Sequalize
+- dotenv
 
-## Acceptance Criteria
+## Installation
 
-```md
-GIVEN a CMS-style blog site
-WHEN I visit the site for the first time
-THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
-WHEN I click on the homepage option
-THEN I am taken to the homepage
-WHEN I click on any other links in the navigation
-THEN I am prompted to either sign up or sign in
-WHEN I choose to sign up
-THEN I am prompted to create a username and password
-WHEN I click on the sign-up button
-THEN my user credentials are saved and I am logged into the site
-WHEN I revisit the site at a later time and choose to sign in
-THEN I am prompted to enter my username and password
-WHEN I am signed in to the site
-THEN I see navigation links for the homepage, the dashboard, and the option to log out
-WHEN I click on the homepage option in the navigation
-THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
-WHEN I click on an existing blog post
-THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
-WHEN I enter a comment and click on the submit button while signed in
-THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
-WHEN I click on the dashboard option in the navigation
-THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
-WHEN I click on the button to add a new blog post
-THEN I am prompted to enter both a title and contents for my blog post
-WHEN I click on the button to create a new blog post
-THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-WHEN I click on one of my existing posts in the dashboard
-THEN I am able to delete or update my post and taken back to an updated dashboard
-WHEN I click on the logout option in the navigation
-THEN I am signed out of the site
-WHEN I am idle on the site for more than a set time
-THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
-```
+1. Make sure you have Node.js and MySQL installed on your computer.
+2. Clone the repository or download the source code.
+3. Open the terminal or command prompt and navigate to the project directory.
+4. Install the dependencies by running the command npm install.
+5. Create a .env file in the root of the project directory, and add the following
+   variables: DB_NAME=your_database_name
+   DB_USER=your_mysql_username
+   DB_PW=your_mysql_password
+6. Create the database by running the command npm run db:create.
+7. Seed the database with some sample data by running the command npm run db:seed.
+8. Start the server by running the command npm start.
+9. Open your web browser and go to http://localhost:3001 to see the application running.
 
-## Mock-Up
+## tests
 
-The following animation demonstrates the application functionality:
+No Tests were further done.
 
-![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/14-mvc-homework-demo-01.gif) 
+## Usage
 
-## Getting Started
+1. Start the application by running npm start in the terminal.
+2. Open a web browser and navigate to http://localhost:3001.
+3. If you're a new user, click the "Sign Up" link in the navigation bar and fill in the registration form to create a new account. Otherwise, click the "Sign In" link and enter your email address and password to log in.
+4. Once you're logged in, you'll be taken to the homepage, where you can view and read blog posts from other users.
+5. To create a new blog post, click the "Dashboard" link in the navigation bar and then click the "New Post" button. Fill in the title and content fields and then click the "Create Post" button to save your new post.
+6. To edit or delete an existing post, navigate to your dashboard and click the "Edit" or "Delete" button next to the post you want to modify.
+7. To leave a comment on a post, click on the post title to view the full post and then fill in the comment form at the bottom of the page.
+8. When you're finished using the application, click the "Logout" link in the navigation bar to sign out.
 
-Your application’s folder structure must follow the Model-View-Controller paradigm. You’ll need to use the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views, use the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to a MySQL database for your Models, and create an Express.js API for your Controllers.
+## Link
 
-You’ll also need the [dotenv package](https://www.npmjs.com/package/dotenv) to use environment variables, the [bcrypt package](https://www.npmjs.com/package/bcrypt) to hash passwords, and the [express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add authentication.
+// Not done yet
 
-**Note**: The [express-session](https://www.npmjs.com/package/express-session) package stores the session data on the client in a cookie. When you are idle on the site for more than a set time, the cookie will expire and you will be required to log in again to start a new session. This is the default behavior and you do not have to do anything to your application other than implement the npm package.
+## Contact-Details
 
-## Grading Requirements
+-linkedin: ://www.linkedin.com/in/kayhan-mamak-5423b4262/
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+- Github: https://github.com/byunn90
 
-This Challenge is graded based on the following criteria:
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-    * Application’s folder structure follows the Model-View-Controller paradigm.
-
-    * Uses the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views.
-
-    * Application must be deployed to Heroku.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* User experience is intuitive and easy to navigate.
-
-* User interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+-Email: Kayhan_mamak@hotmail.com

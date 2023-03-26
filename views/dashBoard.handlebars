@@ -8,9 +8,14 @@
         class="post-content"
         placeholder="Blog post"
       ></textarea>
+      <input
+        type="text"
+        name="username"
+        class="post-username"
+        placeholder="Username"
+      />
       <div class="create-post-buttons">
         <button class="submit-button" type="submit">Submit</button>
-        <button class="delete-button display-none">Delete</button>
       </div>
     </form>
   </div>
@@ -21,6 +26,7 @@
         <div class="blog-post">
           <h3>{{this.title}}</h3>
           <p>{{this.content}}</p>
+          <p>Posted by {{this.username}}</p>
           <div class="blog-post-buttons">
             <button class="edit-button" data-id="{{this.id}}">Edit</button>
             <button class="delete-button" data-id="{{this.id}}">Delete</button>
