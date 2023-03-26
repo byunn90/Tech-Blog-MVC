@@ -1,48 +1,52 @@
 const router = require("express").Router();
-const { post } = require("../../models");
+const { Post } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-// creating a post
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
-    // handle creating a new post here
+    const newPost = await Post.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newPost);
   } catch (err) {
-    console.log(err);
+    res.status(400).json(err);
+  }
+});
+
+router.get("/", withAuth, async (req, res) => {
+  try {
+    // Retrieve data for the dashboard
+    const posts = await Post.findAll({
+      where: { user_id: req.session.user_id },
+    });
+
+    // Render the dashboard template with the data
+    res.render("dashboard", { posts });
+  } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// getting a post
-router.get("/", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
-    if (!req.session.logged_in) {
-      // redirect to login page if not logged in
-      return res.redirect("/login");
+    const postData = await Post.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!postData) {
+      res.status(404).json({ message: "No post found with this id!" });
+      return;
     }
-    // render the dashboard view
-    res.render("dashboard");
+
+    res.status(200).json(postData);
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
-
-// delete a post
-router.delete("/", async (req, res) => {
-  try {
-    // handle deleting a post here
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-// update a post
-// router.update("/", async (req, res) => {
-//   try {
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
 
 module.exports = router;

@@ -1,10 +1,32 @@
-<div class="blog-Post">
-  <h1>Create a Blog</h1>
-  <button class="Create-Post">Create Post</button>
-  <form action="/api/dashBoard" method="POST">
-    <input type="text" name="title" placeholder="Title" />
-    <textarea name="body" placeholder="Blog post"></textarea>
-    <button class="Submit-Button" type="submit">Submit</button>
-  </form>
-  <button class="delete display-none">Delete</button>
+<div class="dashboard-container">
+  <div class="create-post-container">
+    <h2>Create a Blog</h2>
+    <form class="create-post-form">
+      <input type="text" name="title" class="post-title" placeholder="Title" />
+      <textarea
+        name="content"
+        class="post-content"
+        placeholder="Blog post"
+      ></textarea>
+      <div class="create-post-buttons">
+        <button class="submit-button" type="submit">Submit</button>
+        <button class="delete-button display-none">Delete</button>
+      </div>
+    </form>
+  </div>
+  <div class="blog-list-container">
+    <h2>Your Blog Posts</h2>
+    <div class="blog-list">
+      {{#each blogposts}}
+        <div class="blog-post">
+          <h3>{{this.title}}</h3>
+          <p>{{this.content}}</p>
+          <div class="blog-post-buttons">
+            <button class="edit-button" data-id="{{this.id}}">Edit</button>
+            <button class="delete-button" data-id="{{this.id}}">Delete</button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
 </div>

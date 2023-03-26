@@ -1,7 +1,65 @@
-.blog-Post {
+.dashboard-container {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.display-none {
-  display: hidden;
+.create-post-container,
+.blog-list-container {
+  width: 400px;
+  margin: 20px;
+}
+
+.create-post-container h2,
+.blog-list-container h2 {
+  text-align: center;
+}
+
+.create-post-form {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.create-post-form input,
+.create-post-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.create-post-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-button,
+.delete-button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #0d6efd;
+}
+
+.delete-button {
+  background-color: #dc3545;
+}
+
+.blog-list {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.blog-list h3,
+.blog-list p {
+  margin-bottom: 10px;
 }
