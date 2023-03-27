@@ -1,0 +1,20 @@
+<div class="create-post-container">
+  <h2>Edit a Blog</h2>
+  <form class="create-post-form">
+    <input type="text" name="title" class="post-title" value="{{title}}" />
+    <textarea
+      name="content"
+      class="post-content"
+      placeholder="Blog post"
+    >{{content}}</textarea>
+    <div class="create-post-buttons">
+      <button
+        data-id="{{this.id}}"
+        class="edit-button"
+        type="submit"
+      >Submit</button>
+    </div>
+  </form>
+</div>
+
+<script src="/js/update.js"></script>

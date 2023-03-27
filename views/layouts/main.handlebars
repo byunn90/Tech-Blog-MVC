@@ -18,7 +18,7 @@
         </h1>
         <nav>
           {{#if logged_in}}
-            <a href="/api/dashboard">Dashboard</a>
+            <a href="/dashboard">Dashboard</a>
             |
             <button class="no-button" id="logout">Logout</button>
           {{else}}
@@ -38,7 +38,7 @@
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
       <script src="/js/logout.js"></script>
-      <script src="/js/post.js"></script>
+
     {{/if}}
   </body>
 

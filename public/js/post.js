@@ -31,11 +31,13 @@ const submitPost = function (e) {
       const postElement = document.createElement("div");
       postElement.classList.add("blog-post");
       postElement.innerHTML = `
+        <h1>Title</h1>
         <h3>${data.title}</h3>
+        <h1>Content</h1>
         <p>${data.content}</p>
         <p>Posted by ${data.username}</p>
         <div class="blog-post-buttons">
-          <button class="edit-button" data-id="${data.id}">Edit</button>
+          <a href="/post/${data.id}" class="edit-button" data-id="${data.id}">Edit</a>
           <button class="delete-button" data-id="${data.id}">Delete</button>
         </div>
       `;

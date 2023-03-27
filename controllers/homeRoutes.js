@@ -16,10 +16,11 @@ router.get("/", async (req, res) => {
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
+    console.log(posts);
 
     // Pass serialized data and session flag into template
     res.render("dashboard", {
-      posts,
+      blogposts: posts,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -59,9 +60,11 @@ router.get("/dashboard", withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
+    console.log("user----------------", user);
 
     res.render("dashboard", {
-      ...user,
+      username: user.name,
+      blogposts: user.posts,
       logged_in: true,
     });
   } catch (err) {

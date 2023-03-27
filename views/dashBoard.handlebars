@@ -24,11 +24,11 @@
     <div class="blog-list">
       {{#each blogposts}}
         <div class="blog-post">
-          <h3>{{this.title}}</h3>
-          <p>{{this.content}}</p>
-          <p>Posted by {{this.username}}</p>
+          <h3>{{title}}</h3>
+          <p>{{content}}</p>
+          <p>Posted by {{#if user.name}}{{user.name}}{{else}}{{../username}}{{/if}}</p>
           <div class="blog-post-buttons">
-            <button class="edit-button" data-id="{{this.id}}">Edit</button>
+            <a href="/post/{{this.id}}" class="edit-button" data-id="{{this.id}}">Edit</a>
             <button class="delete-button" data-id="{{this.id}}">Delete</button>
           </div>
         </div>
@@ -36,3 +36,5 @@
     </div>
   </div>
 </div>
+
+<script src="/js/post.js"></script>
