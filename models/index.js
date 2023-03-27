@@ -3,11 +3,11 @@ const Post = require("../models/post");
 
 User.hasMany(Post, {
   foreignKey: "user_id",
-  sourceKey: "id",
   onDelete: "CASCADE",
 });
+
 Post.belongsTo(User, {
-  foreignKey: "id",
+  foreignKey: "user_id",
 });
 
 module.exports = { User, Post };

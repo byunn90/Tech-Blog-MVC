@@ -125,3 +125,6 @@
 .delete-button:hover {
   background-color: #c82333;
 }
+.post-username {
+  display: none;
+}
