@@ -63,4 +63,4 @@ User.hasMany(Post, {
   onDelete: "CASCADE",
 });
 
-module.exports = User;
+module.exports = { User };
