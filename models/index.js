@@ -1,5 +1,5 @@
-const User = require("./models/User");
-const Post = require("./models/Post");
+const User = require("./user");
+const Post = require("./post");
 
 // Define associations between models here
 User.hasMany(Post, {
