@@ -1,6 +1,7 @@
-const User = require("../models/user");
-const Post = require("../models/post");
+const User = require("./models/User");
+const Post = require("./models/Post");
 
+// Define associations between models here
 User.hasMany(Post, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
