@@ -1,6 +1,6 @@
 # 😁 Tech-Blog-MVC
 
-![alt text](<./images/Screenshot%20(49).png>)
+![alt text](./Assets/blogposts.png)
 
 ## Description
 
@@ -50,7 +50,7 @@ No Tests were further done.
 
 ## Link
 
-// Not done yet
+https://shrouded-taiga-72180.herokuapp.com
 
 ## Contact-Details
 
