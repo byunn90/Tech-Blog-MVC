@@ -20,7 +20,7 @@ const hbs = expressHandlebars.create({});
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
-app.set("views", path.join(__dirname, "views"));
+// app.set("views", path.join(__dirname, "views"));
 console.log(app.get("views"));
 
 const sess = {
